@@ -13,7 +13,7 @@ class MigrationsTest extends TestCase
 
     // !!! NOTICE: THAT DB WILL BE WIPED A LOT WITHIN TESTS BY "migrate:fresh"
 
-    public function test_successful_foreign_key_tasks()
+    public function test_successful_foreign_key_tasks_comments()
     {
         // We just test if the migration succeeds or throws an exception
         $this->expectNotToPerformAssertions();
