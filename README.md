@@ -69,3 +69,13 @@ Test method `test_delete_parent_child_record()`.
 
 ---
 
+## Task 5. Check if Table/Column Exists
+
+Folder `database/migrations/task5` contains migrations for users table. By mistake, some developer tries to add the column that already exists, and re-create the users table that already exists.
+
+You need to modify the migrations to ignore those operations if the column/table exists. So "php artisan migrate" should run successfully, without errors.
+
+Test method `test_repeating_column_table()`.
+
+---
+

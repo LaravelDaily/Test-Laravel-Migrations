@@ -40,7 +40,6 @@ class MigrationsTest extends TestCase
         }
 
         $this->assertEquals(3, $fieldNumber);
-
     }
 
     public function test_soft_deletes()
@@ -64,5 +63,13 @@ class MigrationsTest extends TestCase
         $category = Category::factory()->create();
         Product::factory()->create();
         $category->delete();
+    }
+
+    public function test_repeating_column_table()
+    {
+        // We just test if the migration succeeds or throws an exception
+        $this->expectNotToPerformAssertions();
+
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task5']);
     }
 }
