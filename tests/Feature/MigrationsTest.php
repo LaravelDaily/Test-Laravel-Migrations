@@ -7,6 +7,7 @@ use App\Models\Company;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Visitor;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
@@ -111,5 +112,13 @@ class MigrationsTest extends TestCase
 
         Company::create(['name' => 'First']);
         $this->assertDatabaseHas(Company::class, ['name' => 'First']);
+    }
+
+    public function test_null_foreign_key()
+    {
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task10']);
+
+        Visitor::create(['ip_address' => '127.0.0.1']);
+        $this->assertDatabaseCount(Visitor::class, 1);
     }
 }

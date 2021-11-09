@@ -111,3 +111,11 @@ Test method `test_renamed_column()`.
 
 ---
 
+## Task 10. NULL on Foreign Key
+
+Folder `database/migrations/task10` contains migrations for countries and visitors table. Visitor may have undetected country, so country_id may be NULL. Change the visitors table migration to allow that.
+
+Test method `test_null_foreign_key()`.
+
+---
+
