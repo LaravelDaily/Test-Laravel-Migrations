@@ -19,12 +19,12 @@ jobs:
 
     - name: Set up MySQL
       env:
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root
-          MYSQL_DATABASE: test_db
+        DB_USERNAME: root
+        DB_PASSWORD: root
+        DB_DATABASE: test_db
       run: |
         sudo /etc/init.d/mysql start
-        mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+        mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USERNAME }} -p${{ env.DB_PASSWORD }}
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
@@ -38,8 +38,4 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
-      env:
-        DB_USERNAME: root
-        DB_PASSWORD: root
-        DB_DATABASE: test_db
       run: vendor/bin/phpunit
