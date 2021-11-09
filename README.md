@@ -103,3 +103,11 @@ Test method `test_renamed_table()`.
 
 ---
 
+## Task 9. Rename column
+
+Folder `database/migrations/task9` contains a migration for companies table. Later it was decided to rename the column from "companies.title" to "companies.name". Write the code for that, in the second migration file.
+
+Test method `test_renamed_column()`.
+
+---
+
