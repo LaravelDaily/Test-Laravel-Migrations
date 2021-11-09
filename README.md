@@ -44,3 +44,11 @@ Test method `test_column_added_to_the_table()`.
 
 ---
 
+## Task 3. Soft Deletes.
+
+Folder `database/migrations/task3` contains a migration for projects table. You need to add a field there, for Soft Delete functionality.
+
+Test method `test_soft_deletes()`.
+
+---
+

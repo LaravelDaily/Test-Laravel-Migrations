@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
@@ -38,5 +39,16 @@ class MigrationsTest extends TestCase
 
         $this->assertEquals(3, $fieldNumber);
 
+    }
+
+    public function test_soft_deletes()
+    {
+        // We just test if the test succeeds or throws an exception
+        $this->expectNotToPerformAssertions();
+
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task3']);
+
+        $project = Project::factory()->create();
+        $project->delete();
     }
 }
