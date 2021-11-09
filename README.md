@@ -35,3 +35,12 @@ Test method `test_successful_foreign_key_tasks_comments()`.
 
 ---
 
+## Task 2. Add Column after Another Column.
+
+Folder `database/migrations/task2` contains migrations for users table: one for creating the table, and another one for adding a NEW field.
+That new field "surname" should be added in a particular order - after the "name" field.
+
+Test method `test_column_added_to_the_table()`.
+
+---
+
