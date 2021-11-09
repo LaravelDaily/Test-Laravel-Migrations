@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
@@ -50,5 +52,17 @@ class MigrationsTest extends TestCase
 
         $project = Project::factory()->create();
         $project->delete();
+    }
+
+    public function test_delete_parent_child_record()
+    {
+        // We just test if the test succeeds or throws an exception
+        $this->expectNotToPerformAssertions();
+
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task4']);
+
+        $category = Category::factory()->create();
+        Product::factory()->create();
+        $category->delete();
     }
 }
