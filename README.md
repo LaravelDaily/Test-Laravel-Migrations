@@ -79,3 +79,11 @@ Test method `test_repeating_column_table()`.
 
 ---
 
+## Task 6. Duplicate Column Value
+
+Folder `database/migrations/task6` contains a migration for companies table. Edit that migration, so that it would be impossible to create multiple companies with the same name.
+
+Test method `test_duplicate_name()`.
+
+---
+

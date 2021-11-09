@@ -3,9 +3,11 @@
 namespace Tests\Feature;
 
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
@@ -71,5 +73,17 @@ class MigrationsTest extends TestCase
         $this->expectNotToPerformAssertions();
 
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task5']);
+    }
+
+    public function test_duplicate_name()
+    {
+        // We expect that the second Company::create() would throw an exception like
+        // "Integrity constraint violation: 1062 Duplicate entry 'Company One'"
+        $this->expectException(QueryException::class);
+
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task6']);
+
+        Company::create(['name' => 'Company One']);
+        Company::create(['name' => 'Company One']);
     }
 }
