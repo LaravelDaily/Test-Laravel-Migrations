@@ -87,3 +87,11 @@ Test method `test_duplicate_name()`.
 
 ---
 
+## Task 7. Automatic Column Value
+
+Folder `database/migrations/task7` contains a migration for companies table. Edit that migration, so that if someone creates a company without the name, the automatic name would be "My company".
+
+Test method `test_automatic_value()`.
+
+---
+

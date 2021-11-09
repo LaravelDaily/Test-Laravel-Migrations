@@ -86,4 +86,13 @@ class MigrationsTest extends TestCase
         Company::create(['name' => 'Company One']);
         Company::create(['name' => 'Company One']);
     }
+
+    public function test_automatic_value()
+    {
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task7']);
+
+        Company::create([]);
+        $company = Company::first();
+        $this->assertEquals('My company', $company->name);
+    }
 }
