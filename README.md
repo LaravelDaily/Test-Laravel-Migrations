@@ -95,3 +95,11 @@ Test method `test_automatic_value()`.
 
 ---
 
+## Task 8. Rename table
+
+Folder `database/migrations/task8` contains a migration for company table. Later it was decided to rename the table from "company" to "companies". Write the code for that, in the second migration file.
+
+Test method `test_renamed_table()`.
+
+---
+

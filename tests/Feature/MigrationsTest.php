@@ -9,6 +9,7 @@ use App\Models\Project;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class MigrationsTest extends TestCase
@@ -94,5 +95,13 @@ class MigrationsTest extends TestCase
         Company::create([]);
         $company = Company::first();
         $this->assertEquals('My company', $company->name);
+    }
+
+    public function test_renamed_table()
+    {
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task8']);
+
+        DB::table('companies')->insert(['name' => 'First']);
+        $this->assertDatabaseHas(Company::class, ['name' => 'First']);
     }
 }
