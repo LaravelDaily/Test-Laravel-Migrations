@@ -61,7 +61,6 @@ class MigrationsTest extends TestCase
     {
         // We just test if the test succeeds or throws an exception
         $this->expectNotToPerformAssertions();
-
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task4']);
 
         $category = Category::factory()->create();
@@ -69,13 +68,13 @@ class MigrationsTest extends TestCase
         $category->delete();
     }
 
-    // public function test_repeating_column_table()
-    // {
-    //     // We just test if the migration succeeds or throws an exception
-    //     $this->expectNotToPerformAssertions();
+    public function test_repeating_column_table()
+    {
+        // We just test if the migration succeeds or throws an exception
+        $this->expectNotToPerformAssertions();
 
-    //     Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task5']);
-    // }
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task5']);
+    }
 
     // public function test_duplicate_name()
     // {
