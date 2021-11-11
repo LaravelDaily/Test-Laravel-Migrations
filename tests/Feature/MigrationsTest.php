@@ -29,22 +29,22 @@ class MigrationsTest extends TestCase
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task1']);
     }
 
-    // public function test_column_added_to_the_table()
-    // {
-    //     Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task2']);
+    public function test_column_added_to_the_table()
+    {
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task2']);
 
-    //     User::factory()->create(['surname' => 'Testing']);
-    //     $this->assertDatabaseHas(User::class, ['surname' => 'Testing']);
+        User::factory()->create(['surname' => 'Testing']);
+        $this->assertDatabaseHas(User::class, ['surname' => 'Testing']);
 
-    //     $user = User::first();
-    //     $fieldNumber = 0;
-    //     foreach ($user->getAttributes() as $key => $value) {
-    //         $fieldNumber++;
-    //         if ($key == "surname") break;
-    //     }
+        $user = User::first();
+        $fieldNumber = 0;
+        foreach ($user->getAttributes() as $key => $value) {
+            $fieldNumber++;
+            if ($key == "surname") break;
+        }
 
-    //     $this->assertEquals(3, $fieldNumber);
-    // }
+        $this->assertEquals(3, $fieldNumber);
+    }
 
     // public function test_soft_deletes()
     // {
