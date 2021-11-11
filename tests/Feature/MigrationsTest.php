@@ -76,34 +76,34 @@ class MigrationsTest extends TestCase
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task5']);
     }
 
-    // public function test_duplicate_name()
-    // {
-    //     // We expect that the second Company::create() would throw an exception like
-    //     // "Integrity constraint violation: 1062 Duplicate entry 'Company One'"
-    //     $this->expectException(QueryException::class);
+    public function test_duplicate_name()
+    {
+        // We expect that the second Company::create() would throw an exception like
+        // "Integrity constraint violation: 1062 Duplicate entry 'Company One'"
+        $this->expectException(QueryException::class);
 
-    //     Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task6']);
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task6']);
 
-    //     Company::create(['name' => 'Company One']);
-    //     Company::create(['name' => 'Company One']);
-    // }
+        Company::create(['name' => 'Company One']);
+        Company::create(['name' => 'Company One']);
+    }
 
-    // public function test_automatic_value()
-    // {
-    //     Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task7']);
+    public function test_automatic_value()
+    {
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task7']);
 
-    //     Company::create([]);
-    //     $company = Company::first();
-    //     $this->assertEquals('My company', $company->name);
-    // }
+        Company::create([]);
+        $company = Company::first();
+        $this->assertEquals('My company', $company->name);
+    }
 
-    // public function test_renamed_table()
-    // {
-    //     Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task8']);
+    public function test_renamed_table()
+    {
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task8']);
 
-    //     DB::table('companies')->insert(['name' => 'First']);
-    //     $this->assertDatabaseHas(Company::class, ['name' => 'First']);
-    // }
+        DB::table('companies')->insert(['name' => 'First']);
+        $this->assertDatabaseHas(Company::class, ['name' => 'First']);
+    }
 
     // public function test_renamed_column()
     // {
