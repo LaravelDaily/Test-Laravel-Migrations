@@ -46,28 +46,28 @@ class MigrationsTest extends TestCase
         $this->assertEquals(3, $fieldNumber);
     }
 
-    // public function test_soft_deletes()
-    // {
-    //     // We just test if the test succeeds or throws an exception
-    //     $this->expectNotToPerformAssertions();
+    public function test_soft_deletes()
+    {
+        // We just test if the test succeeds or throws an exception
+        $this->expectNotToPerformAssertions();
 
-    //     Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task3']);
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task3']);
 
-    //     $project = Project::factory()->create();
-    //     $project->delete();
-    // }
+        $project = Project::factory()->create();
+        $project->delete();
+    }
 
-    // public function test_delete_parent_child_record()
-    // {
-    //     // We just test if the test succeeds or throws an exception
-    //     $this->expectNotToPerformAssertions();
+    public function test_delete_parent_child_record()
+    {
+        // We just test if the test succeeds or throws an exception
+        $this->expectNotToPerformAssertions();
 
-    //     Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task4']);
+        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task4']);
 
-    //     $category = Category::factory()->create();
-    //     Product::factory()->create();
-    //     $category->delete();
-    // }
+        $category = Category::factory()->create();
+        Product::factory()->create();
+        $category->delete();
+    }
 
     // public function test_repeating_column_table()
     // {
