@@ -14,8 +14,10 @@ class RenameNameInCompaniesTable extends Migration
     public function up()
     {
         // TASK: write the migration to rename the column "title" into "name"
+        DB::statement("ALTER TABLE `companies` CHANGE COLUMN `title` `name` VARCHAR(255) NOT NULL;");
+
         Schema::table('companies', function (Blueprint $table) {
-            // Write code here
+
         });
     }
 
@@ -26,8 +28,10 @@ class RenameNameInCompaniesTable extends Migration
      */
     public function down()
     {
+        DB::statement("ALTER TABLE `companies` CHANGE COLUMN `name` `title` VARCHAR(255) NOT NULL;");
+
         Schema::table('companies', function (Blueprint $table) {
-            //
+
         });
     }
 }
