@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4842c22e789d247c4b660e69490545f",
+    "content-hash": "1fb3deb6403812df787412668146acf5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -123,38 +123,41 @@
             "time": "2021-08-15T20:50:18+00:00"
         },
         {
-            "name": "dflydev/dot-access-data",
-            "version": "v3.0.1",
+            "name": "composer/package-versions-deprecated",
+            "version": "1.11.99.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dflydev/dflydev-dot-access-data.git",
-                "reference": "0992cc19268b259a39e86f296da5f0677841f42c"
+                "url": "https://github.com/composer/package-versions-deprecated.git",
+                "reference": "b174585d1fe49ceed21928a945138948cb394600"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-dot-access-data/zipball/0992cc19268b259a39e86f296da5f0677841f42c",
-                "reference": "0992cc19268b259a39e86f296da5f0677841f42c",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/b174585d1fe49ceed21928a945138948cb394600",
+                "reference": "b174585d1fe49ceed21928a945138948cb394600",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1 || ^8.0"
+                "composer-plugin-api": "^1.1.0 || ^2.0",
+                "php": "^7 || ^8"
+            },
+            "replace": {
+                "ocramius/package-versions": "1.11.99"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.42",
-                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.3",
-                "scrutinizer/ocular": "1.6.0",
-                "squizlabs/php_codesniffer": "^3.5",
-                "vimeo/psalm": "^3.14"
+                "composer/composer": "^1.9.3 || ^2.0@dev",
+                "ext-zip": "^1.13",
+                "phpunit/phpunit": "^6.5 || ^7"
             },
-            "type": "library",
+            "type": "composer-plugin",
             "extra": {
+                "class": "PackageVersions\\Installer",
                 "branch-alias": {
-                    "dev-main": "3.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Dflydev\\DotAccessData\\": "src/"
+                    "PackageVersions\\": "src/PackageVersions"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -163,39 +166,379 @@
             ],
             "authors": [
                 {
-                    "name": "Dragonfly Development Inc.",
-                    "email": "info@dflydev.com",
-                    "homepage": "http://dflydev.com"
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
                 },
                 {
-                    "name": "Beau Simensen",
-                    "email": "beau@dflydev.com",
-                    "homepage": "http://beausimensen.com"
-                },
-                {
-                    "name": "Carlos Frutos",
-                    "email": "carlos@kiwing.it",
-                    "homepage": "https://github.com/cfrutos"
-                },
-                {
-                    "name": "Colin O'Dell",
-                    "email": "colinodell@gmail.com",
-                    "homepage": "https://www.colinodell.com"
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be"
                 }
             ],
-            "description": "Given a deep data structure, access data by dot notation.",
-            "homepage": "https://github.com/dflydev/dflydev-dot-access-data",
+            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "support": {
+                "issues": "https://github.com/composer/package-versions-deprecated/issues",
+                "source": "https://github.com/composer/package-versions-deprecated/tree/1.11.99.4"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-09-13T08:41:34+00:00"
+        },
+        {
+            "name": "doctrine/cache",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/cache.git",
+                "reference": "331b4d5dbaeab3827976273e9356b3b453c300ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/331b4d5dbaeab3827976273e9356b3b453c300ce",
+                "reference": "331b4d5dbaeab3827976273e9356b3b453c300ce",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7.1 || ^8.0"
+            },
+            "conflict": {
+                "doctrine/common": ">2.2,<2.4"
+            },
+            "require-dev": {
+                "alcaeus/mongo-php-adapter": "^1.1",
+                "cache/integration-tests": "dev-master",
+                "doctrine/coding-standard": "^8.0",
+                "mongodb/mongodb": "^1.1",
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",
+                "predis/predis": "~1.0",
+                "psr/cache": "^1.0 || ^2.0 || ^3.0",
+                "symfony/cache": "^4.4 || ^5.2 || ^6.0@dev",
+                "symfony/var-exporter": "^4.4 || ^5.2 || ^6.0@dev"
+            },
+            "suggest": {
+                "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "PHP Doctrine Cache library is a popular cache implementation that supports many different drivers such as redis, memcache, apc, mongodb and others.",
+            "homepage": "https://www.doctrine-project.org/projects/cache.html",
             "keywords": [
-                "access",
-                "data",
-                "dot",
-                "notation"
+                "abstraction",
+                "apcu",
+                "cache",
+                "caching",
+                "couchdb",
+                "memcached",
+                "php",
+                "redis",
+                "xcache"
             ],
             "support": {
-                "issues": "https://github.com/dflydev/dflydev-dot-access-data/issues",
-                "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.1"
+                "issues": "https://github.com/doctrine/cache/issues",
+                "source": "https://github.com/doctrine/cache/tree/2.1.1"
             },
-            "time": "2021-08-13T13:06:58+00:00"
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fcache",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-07-17T14:49:29+00:00"
+        },
+        {
+            "name": "doctrine/dbal",
+            "version": "3.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/dbal.git",
+                "reference": "96b0053775a544b4a6ab47654dac0621be8b4cf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/96b0053775a544b4a6ab47654dac0621be8b4cf8",
+                "reference": "96b0053775a544b4a6ab47654dac0621be8b4cf8",
+                "shasum": ""
+            },
+            "require": {
+                "composer/package-versions-deprecated": "^1.11.99",
+                "doctrine/cache": "^1.0|^2.0",
+                "doctrine/deprecations": "^0.5.3",
+                "doctrine/event-manager": "^1.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "9.0.0",
+                "jetbrains/phpstorm-stubs": "2021.1",
+                "phpstan/phpstan": "0.12.99",
+                "phpstan/phpstan-strict-rules": "^0.12.11",
+                "phpunit/phpunit": "9.5.10",
+                "psalm/plugin-phpunit": "0.16.1",
+                "squizlabs/php_codesniffer": "3.6.0",
+                "symfony/cache": "^5.2|^6.0",
+                "symfony/console": "^2.0.5|^3.0|^4.0|^5.0|^6.0",
+                "vimeo/psalm": "4.10.0"
+            },
+            "suggest": {
+                "symfony/console": "For helpful console commands such as SQL execution and import of files."
+            },
+            "bin": [
+                "bin/doctrine-dbal"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\DBAL\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Powerful PHP database abstraction layer (DBAL) with many features for database schema introspection and management.",
+            "homepage": "https://www.doctrine-project.org/projects/dbal.html",
+            "keywords": [
+                "abstraction",
+                "database",
+                "db2",
+                "dbal",
+                "mariadb",
+                "mssql",
+                "mysql",
+                "oci8",
+                "oracle",
+                "pdo",
+                "pgsql",
+                "postgresql",
+                "queryobject",
+                "sasql",
+                "sql",
+                "sqlite",
+                "sqlserver",
+                "sqlsrv"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/dbal/issues",
+                "source": "https://github.com/doctrine/dbal/tree/3.1.3"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdbal",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-10-02T16:15:05+00:00"
+        },
+        {
+            "name": "doctrine/deprecations",
+            "version": "v0.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/deprecations.git",
+                "reference": "9504165960a1f83cc1480e2be1dd0a0478561314"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/9504165960a1f83cc1480e2be1dd0a0478561314",
+                "reference": "9504165960a1f83cc1480e2be1dd0a0478561314",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^6.0|^7.0|^8.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Deprecations\\": "lib/Doctrine/Deprecations"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
+            "homepage": "https://www.doctrine-project.org/",
+            "support": {
+                "issues": "https://github.com/doctrine/deprecations/issues",
+                "source": "https://github.com/doctrine/deprecations/tree/v0.5.3"
+            },
+            "time": "2021-03-21T12:59:47+00:00"
+        },
+        {
+            "name": "doctrine/event-manager",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/event-manager.git",
+                "reference": "41370af6a30faa9dc0368c4a6814d596e81aba7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/event-manager/zipball/41370af6a30faa9dc0368c4a6814d596e81aba7f",
+                "reference": "41370af6a30faa9dc0368c4a6814d596e81aba7f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "doctrine/common": "<2.9@dev"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^6.0",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\": "lib/Doctrine/Common"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                },
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                }
+            ],
+            "description": "The Doctrine Event Manager is a simple PHP event system that was built to be used with the various Doctrine projects.",
+            "homepage": "https://www.doctrine-project.org/projects/event-manager.html",
+            "keywords": [
+                "event",
+                "event dispatcher",
+                "event manager",
+                "event system",
+                "events"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/event-manager/issues",
+                "source": "https://github.com/doctrine/event-manager/tree/1.1.x"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fevent-manager",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-05-29T18:28:51+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -960,16 +1303,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.69.0",
+            "version": "v8.70.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "545181da688db64fed6d8427e55f630a90ca0d32"
+                "reference": "dec9524cd0f9fa35a6eb8e25d0b40f8bbc8ec225"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/545181da688db64fed6d8427e55f630a90ca0d32",
-                "reference": "545181da688db64fed6d8427e55f630a90ca0d32",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/dec9524cd0f9fa35a6eb8e25d0b40f8bbc8ec225",
+                "reference": "dec9524cd0f9fa35a6eb8e25d0b40f8bbc8ec225",
                 "shasum": ""
             },
             "require": {
@@ -1128,7 +1471,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-11-02T13:53:22+00:00"
+            "time": "2021-11-09T22:48:33+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -1323,51 +1666,42 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.0.2",
+            "version": "1.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "2df87709f44b0dd733df86aef0830dce9b1f0f13"
+                "reference": "c4228d11e30d7493c6836d20872f9582d8ba6dcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/2df87709f44b0dd733df86aef0830dce9b1f0f13",
-                "reference": "2df87709f44b0dd733df86aef0830dce9b1f0f13",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c4228d11e30d7493c6836d20872f9582d8ba6dcf",
+                "reference": "c4228d11e30d7493c6836d20872f9582d8ba6dcf",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "league/config": "^1.1.1",
-                "php": "^7.4 || ^8.0",
-                "psr/event-dispatcher": "^1.0",
-                "symfony/polyfill-php80": "^1.15"
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "scrutinizer/ocular": "1.7.*"
             },
             "require-dev": {
-                "cebe/markdown": "^1.0",
-                "commonmark/cmark": "0.30.0",
-                "commonmark/commonmark.js": "0.30.0",
-                "composer/package-versions-deprecated": "^1.8",
-                "erusev/parsedown": "^1.0",
+                "cebe/markdown": "~1.0",
+                "commonmark/commonmark.js": "0.29.2",
+                "erusev/parsedown": "~1.0",
                 "ext-json": "*",
                 "github/gfm": "0.29.0",
-                "michelf/php-markdown": "^1.4",
-                "phpstan/phpstan": "^0.12.88",
-                "phpunit/phpunit": "^9.5.5",
-                "scrutinizer/ocular": "^1.8.1",
-                "symfony/finder": "^5.3",
-                "symfony/yaml": "^2.3 | ^3.0 | ^4.0 | ^5.0",
-                "unleashedtech/php-coding-standard": "^3.1",
-                "vimeo/psalm": "^4.7.3"
+                "michelf/php-markdown": "~1.4",
+                "mikehaertl/php-shellcommand": "^1.4",
+                "phpstan/phpstan": "^0.12.90",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.2",
+                "scrutinizer/ocular": "^1.5",
+                "symfony/finder": "^4.2"
             },
-            "suggest": {
-                "symfony/yaml": "v2.3+ required if using the Front Matter extension"
-            },
+            "bin": [
+                "bin/commonmark"
+            ],
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "2.1-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "League\\CommonMark\\": "src"
@@ -1385,7 +1719,7 @@
                     "role": "Lead Developer"
                 }
             ],
-            "description": "Highly-extensible PHP Markdown parser which fully supports the CommonMark spec and GitHub-Flavored Markdown (GFM)",
+            "description": "Highly-extensible PHP Markdown parser which fully supports the CommonMark spec and Github-Flavored Markdown (GFM)",
             "homepage": "https://commonmark.thephpleague.com",
             "keywords": [
                 "commonmark",
@@ -1399,7 +1733,6 @@
             ],
             "support": {
                 "docs": "https://commonmark.thephpleague.com/",
-                "forum": "https://github.com/thephpleague/commonmark/discussions",
                 "issues": "https://github.com/thephpleague/commonmark/issues",
                 "rss": "https://github.com/thephpleague/commonmark/releases.atom",
                 "source": "https://github.com/thephpleague/commonmark"
@@ -1430,89 +1763,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-14T14:06:04+00:00"
-        },
-        {
-            "name": "league/config",
-            "version": "v1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/config.git",
-                "reference": "a9d39eeeb6cc49d10a6e6c36f22c4c1f4a767f3e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/config/zipball/a9d39eeeb6cc49d10a6e6c36f22c4c1f4a767f3e",
-                "reference": "a9d39eeeb6cc49d10a6e6c36f22c4c1f4a767f3e",
-                "shasum": ""
-            },
-            "require": {
-                "dflydev/dot-access-data": "^3.0.1",
-                "nette/schema": "^1.2",
-                "php": "^7.4 || ^8.0"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^0.12.90",
-                "phpunit/phpunit": "^9.5.5",
-                "scrutinizer/ocular": "^1.8.1",
-                "unleashedtech/php-coding-standard": "^3.1",
-                "vimeo/psalm": "^4.7.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "1.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "League\\Config\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Colin O'Dell",
-                    "email": "colinodell@gmail.com",
-                    "homepage": "https://www.colinodell.com",
-                    "role": "Lead Developer"
-                }
-            ],
-            "description": "Define configuration arrays with strict schemas and access values with dot notation",
-            "homepage": "https://config.thephpleague.com",
-            "keywords": [
-                "array",
-                "config",
-                "configuration",
-                "dot",
-                "dot-access",
-                "nested",
-                "schema"
-            ],
-            "support": {
-                "docs": "https://config.thephpleague.com/",
-                "issues": "https://github.com/thephpleague/config/issues",
-                "rss": "https://github.com/thephpleague/config/releases.atom",
-                "source": "https://github.com/thephpleague/config"
-            },
-            "funding": [
-                {
-                    "url": "https://www.colinodell.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.paypal.me/colinpodell/10.00",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/colinodell",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-08-14T12:15:32+00:00"
+            "time": "2021-07-17T17:13:23+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1859,153 +2110,6 @@
             "time": "2021-11-01T21:22:20+00:00"
         },
         {
-            "name": "nette/schema",
-            "version": "v1.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/schema.git",
-                "reference": "9a39cef03a5b34c7de64f551538cbba05c2be5df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/schema/zipball/9a39cef03a5b34c7de64f551538cbba05c2be5df",
-                "reference": "9a39cef03a5b34c7de64f551538cbba05c2be5df",
-                "shasum": ""
-            },
-            "require": {
-                "nette/utils": "^2.5.7 || ^3.1.5 ||  ^4.0",
-                "php": ">=7.1 <8.2"
-            },
-            "require-dev": {
-                "nette/tester": "^2.3 || ^2.4",
-                "phpstan/phpstan-nette": "^0.12",
-                "tracy/tracy": "^2.7"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0-only",
-                "GPL-3.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "https://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "https://nette.org/contributors"
-                }
-            ],
-            "description": "📐 Nette Schema: validating data structures against a given Schema.",
-            "homepage": "https://nette.org",
-            "keywords": [
-                "config",
-                "nette"
-            ],
-            "support": {
-                "issues": "https://github.com/nette/schema/issues",
-                "source": "https://github.com/nette/schema/tree/v1.2.2"
-            },
-            "time": "2021-10-15T11:40:02+00:00"
-        },
-        {
-            "name": "nette/utils",
-            "version": "v3.2.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/utils.git",
-                "reference": "9cd80396ca58d7969ab44fc7afcf03624dfa526e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/9cd80396ca58d7969ab44fc7afcf03624dfa526e",
-                "reference": "9cd80396ca58d7969ab44fc7afcf03624dfa526e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2 <8.2"
-            },
-            "conflict": {
-                "nette/di": "<3.0.6"
-            },
-            "require-dev": {
-                "nette/tester": "~2.0",
-                "phpstan/phpstan": "^0.12",
-                "tracy/tracy": "^2.3"
-            },
-            "suggest": {
-                "ext-gd": "to use Image",
-                "ext-iconv": "to use Strings::webalize(), toAscii(), chr() and reverse()",
-                "ext-intl": "to use Strings::webalize(), toAscii(), normalize() and compare()",
-                "ext-json": "to use Nette\\Utils\\Json",
-                "ext-mbstring": "to use Strings::lower() etc...",
-                "ext-tokenizer": "to use Nette\\Utils\\Reflection::getUseStatements()",
-                "ext-xml": "to use Strings::length() etc. when mbstring is not available"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0-only",
-                "GPL-3.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "https://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "https://nette.org/contributors"
-                }
-            ],
-            "description": "🛠  Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
-            "homepage": "https://nette.org",
-            "keywords": [
-                "array",
-                "core",
-                "datetime",
-                "images",
-                "json",
-                "nette",
-                "paginator",
-                "password",
-                "slugify",
-                "string",
-                "unicode",
-                "utf-8",
-                "utility",
-                "validation"
-            ],
-            "support": {
-                "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v3.2.5"
-            },
-            "time": "2021-09-20T10:50:11+00:00"
-        },
-        {
             "name": "nikic/php-parser",
             "version": "v4.13.1",
             "source": {
@@ -2197,20 +2301,20 @@
         },
         {
             "name": "psr/container",
-            "version": "1.1.2",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea"
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/513e0666f7216c7459170d56df27dfcefe1689ea",
-                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/8622567409010282b7aeebe4bb841fe98b58dcaf",
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4.0"
+                "php": ">=7.2.0"
             },
             "type": "library",
             "autoload": {
@@ -2239,9 +2343,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-fig/container/issues",
-                "source": "https://github.com/php-fig/container/tree/1.1.2"
+                "source": "https://github.com/php-fig/container/tree/1.1.1"
             },
-            "time": "2021-11-05T16:50:12+00:00"
+            "time": "2021-03-05T17:36:06+00:00"
         },
         {
             "name": "psr/event-dispatcher",
@@ -2455,30 +2559,30 @@
         },
         {
             "name": "psr/log",
-            "version": "2.0.0",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376"
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/ef29f6d262798707a9edd554e2b82517ef3a9376",
-                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.0"
+                "php": ">=5.3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "src"
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2499,9 +2603,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/2.0.0"
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
-            "time": "2021-07-14T16:41:46+00:00"
+            "time": "2021-05-03T11:20:27+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -5235,16 +5339,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v5.3.1",
+            "version": "v5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "accaddf133651d4b5cf81a119f25296736ffc850"
+                "reference": "d4394d044ed69a8f244f3445bcedf8a0d7fe2403"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/accaddf133651d4b5cf81a119f25296736ffc850",
-                "reference": "accaddf133651d4b5cf81a119f25296736ffc850",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/d4394d044ed69a8f244f3445bcedf8a0d7fe2403",
+                "reference": "d4394d044ed69a8f244f3445bcedf8a0d7fe2403",
                 "shasum": ""
             },
             "require": {
@@ -5267,7 +5371,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.3-dev"
+                    "dev-master": "5.4-dev"
                 }
             },
             "autoload": {
@@ -5297,7 +5401,7 @@
             ],
             "support": {
                 "issues": "https://github.com/vlucas/phpdotenv/issues",
-                "source": "https://github.com/vlucas/phpdotenv/tree/v5.3.1"
+                "source": "https://github.com/vlucas/phpdotenv/tree/v5.4.0"
             },
             "funding": [
                 {
@@ -5309,7 +5413,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-02T19:24:42+00:00"
+            "time": "2021-11-10T01:08:39+00:00"
         },
         {
             "name": "voku/portable-ascii",
@@ -5898,16 +6002,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.12.3",
+            "version": "v1.12.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "f335277677188b79d12f4caad88577cf76e54dfa"
+                "reference": "a214b593d50ad4c581c922d5ee604ffe0fab4d01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/f335277677188b79d12f4caad88577cf76e54dfa",
-                "reference": "f335277677188b79d12f4caad88577cf76e54dfa",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/a214b593d50ad4c581c922d5ee604ffe0fab4d01",
+                "reference": "a214b593d50ad4c581c922d5ee604ffe0fab4d01",
                 "shasum": ""
             },
             "require": {
@@ -5954,7 +6058,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2021-11-05T13:35:24+00:00"
+            "time": "2021-11-09T17:42:55+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -7361,16 +7465,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "4.0.3",
+            "version": "4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "d89cc98761b8cb5a1a235a6b703ae50d34080e65"
+                "reference": "65e8b7db476c5dd267e65eea9cab77584d3cfff9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/d89cc98761b8cb5a1a235a6b703ae50d34080e65",
-                "reference": "d89cc98761b8cb5a1a235a6b703ae50d34080e65",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/65e8b7db476c5dd267e65eea9cab77584d3cfff9",
+                "reference": "65e8b7db476c5dd267e65eea9cab77584d3cfff9",
                 "shasum": ""
             },
             "require": {
@@ -7419,14 +7523,14 @@
                 }
             ],
             "description": "Provides the functionality to export PHP variables for visualization",
-            "homepage": "http://www.github.com/sebastianbergmann/exporter",
+            "homepage": "https://www.github.com/sebastianbergmann/exporter",
             "keywords": [
                 "export",
                 "exporter"
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/exporter/issues",
-                "source": "https://github.com/sebastianbergmann/exporter/tree/4.0.3"
+                "source": "https://github.com/sebastianbergmann/exporter/tree/4.0.4"
             },
             "funding": [
                 {
@@ -7434,7 +7538,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-28T05:24:23+00:00"
+            "time": "2021-11-11T14:18:36+00:00"
         },
         {
             "name": "sebastian/global-state",
