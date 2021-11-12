@@ -2,16 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Models\Category;
-use App\Models\Company;
-use App\Models\Product;
-use App\Models\Project;
-use App\Models\User;
-use App\Models\Visitor;
-use Illuminate\Database\QueryException;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\{Artisan, DB};
+use App\Models\{Category, Company, Product, Project, User, Visitor};
 
 class MigrationsTest extends TestCase
 {
@@ -36,11 +30,13 @@ class MigrationsTest extends TestCase
         User::factory()->create(['surname' => 'Testing']);
         $this->assertDatabaseHas(User::class, ['surname' => 'Testing']);
 
-        $user = User::first();
+        $user        = User::first();
         $fieldNumber = 0;
         foreach ($user->getAttributes() as $key => $value) {
             $fieldNumber++;
-            if ($key == "surname") break;
+            if ($key == 'surname') {
+                break;
+            }
         }
 
         $this->assertEquals(3, $fieldNumber);
