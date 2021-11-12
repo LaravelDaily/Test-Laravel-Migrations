@@ -61,7 +61,6 @@ class MigrationsTest extends TestCase
     {
         // We just test if the test succeeds or throws an exception
         $this->expectNotToPerformAssertions();
-
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task4']);
 
         $category = Category::factory()->create();
