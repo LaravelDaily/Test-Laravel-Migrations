@@ -16,7 +16,8 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('users')->constrained();
             $table->string('name');
             $table->timestamps();
         });
