@@ -118,7 +118,7 @@ class MigrationsTest extends TestCase
     {
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task10']);
 
-        Visitor::create(['ip_address' => '127.0.0.1']);
+        Visitor::create(['ip_address' => '127.0.0.1']); 
         $this->assertDatabaseCount(Visitor::class, 1);
     }
 }
