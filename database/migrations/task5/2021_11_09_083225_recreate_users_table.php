@@ -13,6 +13,9 @@ class RecreateUsersTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('users')) {
+            return ;
+        }
         // TASK: add an if-statement in this file to NOT create table if it already exists
         Schema::create('users', function (Blueprint $table) {
             $table->id();
