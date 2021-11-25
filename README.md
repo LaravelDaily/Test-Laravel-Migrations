@@ -39,7 +39,7 @@ Good luck!
 
 Folder `database/migrations/task1` contains migrations for tasks with foreign key to users, and for comments with foreign key to users. 
 Both will fail, your task is to understand the reason and to fix the migrations to run successfully.
-
+ 
 Test method `test_successful_foreign_key_tasks_comments()`.
 
 ---
