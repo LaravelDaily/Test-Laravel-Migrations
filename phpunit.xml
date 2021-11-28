@@ -20,7 +20,6 @@
         <server name="CACHE_DRIVER" value="array"/>
         <server name="DB_CONNECTION" value="mysql"/>
         <server name="DB_DATABASE" value="mysql_testing"/>
-        <server name="DB_PASSWORD" value="12345678"/>
         <server name="MAIL_MAILER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
