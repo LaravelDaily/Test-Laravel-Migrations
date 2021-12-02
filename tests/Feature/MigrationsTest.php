@@ -114,11 +114,11 @@ class MigrationsTest extends TestCase
         $this->assertDatabaseHas(Company::class, ['name' => 'First']);
     }
 
-    public function test_null_foreign_key()
-    {
-        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task10']);
-
-        Visitor::create(['ip_address' => '127.0.0.1']);
-        $this->assertDatabaseCount(Visitor::class, 1);
-    }
+//    public function test_null_foreign_key()
+//    {
+//        Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task10']);
+//
+//        Visitor::create(['ip_address' => '127.0.0.1']);
+//        $this->assertDatabaseCount(Visitor::class, 1);
+//    }
 }
