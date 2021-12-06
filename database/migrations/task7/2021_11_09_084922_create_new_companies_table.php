@@ -17,7 +17,7 @@ class CreateNewCompaniesTable extends Migration
         // its automatic value of name would be "My company"
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('My Company');
+            $table->string('name')->default('My company');
             $table->timestamps();
         });
     }
