@@ -27,8 +27,8 @@ class RenameNameInCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::table('companies', function (Blueprint $table) {
-            //
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->renameColumn('description', 'notes');
         });
     }
 }
