@@ -14,11 +14,19 @@ class CreateCompaniesTable extends Migration
     public function up()
     {
         // TASK: edit this migration so there couldn't be two companies with the same name
+
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
         });
+        if(schema::hasTable('companies')){
+            Schema::table('companies', function (Blueprint $table) {
+
+                $table->renameColumn('name', 'name2');
+
+            });
+        }
     }
 
     /**
