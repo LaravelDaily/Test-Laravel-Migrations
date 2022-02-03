@@ -14,11 +14,13 @@ class CreateCompaniesTable extends Migration
     public function up()
     {
         // TASK: edit this migration so there couldn't be two companies with the same name
-        Schema::create('companies', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-        });
+        Schema::create(
+            'companies', function (Blueprint $table) {
+                $table->id();
+                $table->string('name')->unique();
+                $table->timestamps();
+            }
+        );
     }
 
     /**
