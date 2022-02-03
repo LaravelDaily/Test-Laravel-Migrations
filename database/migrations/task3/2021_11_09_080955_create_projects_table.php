@@ -13,13 +13,16 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-
-            // TASK: Add soft deletes column here
-        });
+        Schema::create(
+            'projects', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->timestamps();
+                
+                // TASK: Add soft deletes column here
+                $table->softDeletes();
+            }
+        );
     }
 
     /**
