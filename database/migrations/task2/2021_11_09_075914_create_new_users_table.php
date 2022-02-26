@@ -25,6 +25,7 @@ class CreateNewUsersTable extends Migration
             });
         }
 
+
     }
 
     /**
