@@ -14,6 +14,8 @@ class RenameCompaniesTable extends Migration
     public function up()
     {
         // TASK: add a migration to rename table "company" into "companies"
+        if (Schema::hasTable('company') && !Schema::hasTable('companies'))
+            Schema::rename('company','companies');
     }
 
     /**

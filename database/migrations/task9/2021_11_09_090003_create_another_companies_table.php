@@ -13,11 +13,12 @@ class CreateAnotherCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('companies'))
+            Schema::create('companies', function (Blueprint $table) {
+                $table->id();
+                $table->string('title');
+                $table->timestamps();
+            });
     }
 
     /**
