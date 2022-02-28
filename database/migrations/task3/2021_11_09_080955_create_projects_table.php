@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->timestamps();
 
             // TASK: Add soft deletes column here
+            $table->softDeletes('deleted_at', 0);
         });
     }
 
@@ -32,3 +33,4 @@ class CreateProjectsTable extends Migration
         Schema::dropIfExists('projects');
     }
 }
+;
