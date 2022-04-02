@@ -29,6 +29,7 @@ class RenameNameInCompaniesTable extends Migration
     {
         Schema::table('companies', function (Blueprint $table) {
             //
+            $table->renameColumn('title', 'name');
         });
     }
 }
