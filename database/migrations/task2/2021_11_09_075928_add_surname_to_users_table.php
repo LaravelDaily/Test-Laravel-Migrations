@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSurnameToUsersTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class AddSurnameToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // TASK: Add a string field "surname" which would go after the field "name"
-            // Write code here
+            $table->string('surname')->after('name');
         });
     }
 
@@ -27,7 +27,7 @@ class AddSurnameToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('surname');
         });
     }
-}
+};

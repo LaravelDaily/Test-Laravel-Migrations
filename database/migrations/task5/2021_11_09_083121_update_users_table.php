@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateUsersTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,9 @@ class UpdateUsersTable extends Migration
     {
         // TASK: add an if-statement in this file to NOT add column if it already exists
         Schema::table('users', function (Blueprint $table) {
-            $table->string('name');
+            if (! Schema::hasColumn('users', 'name')) {
+                $table->string('name');
+            }
         });
     }
 
@@ -26,6 +28,8 @@ class UpdateUsersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropIfExists('name');
+        });
     }
-}
+};

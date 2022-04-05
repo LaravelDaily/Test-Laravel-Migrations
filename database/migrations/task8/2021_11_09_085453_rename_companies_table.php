@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameCompaniesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,7 @@ class RenameCompaniesTable extends Migration
     public function up()
     {
         // TASK: add a migration to rename table "company" into "companies"
+        Schema::rename('company', 'companies');
     }
 
     /**
@@ -23,6 +24,6 @@ class RenameCompaniesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('companies');
     }
-}
+};
