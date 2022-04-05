@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewCompaniesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,7 @@ class CreateNewCompaniesTable extends Migration
         // its automatic value of name would be "My company"
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->default('My company');
             $table->timestamps();
         });
     }
@@ -31,4 +31,4 @@ class CreateNewCompaniesTable extends Migration
     {
         Schema::dropIfExists('companies');
     }
-}
+};
