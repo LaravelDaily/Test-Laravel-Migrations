@@ -13,6 +13,15 @@ class CreateAnotherUsersTable extends Migration
      */
     public function up()
     {
+
+        if (Schema::hasTable('users')) {
+            // The "users" table exists...
+            return;
+        }
+
+         
+
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -32,5 +41,6 @@ class CreateAnotherUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+
     }
 }
