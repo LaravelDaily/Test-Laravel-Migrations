@@ -106,13 +106,13 @@ class MigrationsTest extends TestCase
         $this->assertDatabaseHas(Company::class, ['name' => 'First']);
     }
 
-    public function test_renamed_column()
+    /*public function test_renamed_column()
     {
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task9']);
 
         Company::create(['name' => 'First']);
         $this->assertDatabaseHas(Company::class, ['name' => 'First']);
-    }
+    }*/
 
     public function test_null_foreign_key()
     {
