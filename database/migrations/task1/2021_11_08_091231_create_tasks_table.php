@@ -13,10 +13,10 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('tasks');
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->timestamps();
         });
