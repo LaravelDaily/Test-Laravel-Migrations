@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Task extends Model
+class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'name'];
+    protected $guarded = ['id'];
 
     /**
-     * Get the user that owns the Task
+     * Get the user that owns the Comment
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
