@@ -14,10 +14,10 @@ class CreateNewCompaniesTable extends Migration
     public function up()
     {
         // TASK: edit this migration so that if company is created without the name
-        // its automatic value of name would be "My company"
+        // its automatic value of name would be "My company
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->default('My company');
             $table->timestamps();
         });
     }

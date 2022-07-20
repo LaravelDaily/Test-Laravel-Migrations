@@ -13,10 +13,10 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        // TASK: edit this migration so there couldn't be two companies with the same name
+        // TASK: edit this migration so there couldn't e two companies with the same name
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
