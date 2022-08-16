@@ -14,9 +14,9 @@ class CreateTasksTable extends Migration
     public function up()
     {
         Schema::create('tasks', function (Blueprint $table) {
+            // sol https://laravel.com/docs/9.x/migrations#foreign-key-constraints
             $table->id();
-            $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->timestamps();
         });
