@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class RenameCompaniesTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -14,6 +15,7 @@ class RenameCompaniesTable extends Migration
     public function up()
     {
         // TASK: add a migration to rename table "company" into "companies"
+        Schema::rename('company', 'companies');
     }
 
     /**
@@ -25,4 +27,5 @@ class RenameCompaniesTable extends Migration
     {
         //
     }
+
 }
