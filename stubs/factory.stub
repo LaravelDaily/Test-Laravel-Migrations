@@ -1,11 +1,10 @@
 <?php
 
-namespace Database\Factories;
+namespace {{ factoryNamespace }};
 
-use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProductFactory extends Factory
+class {{ factory }}Factory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,8 +14,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => Category::all()->random()->id,
-            'name' => $this->faker->text(20),
+            //
         ];
     }
 }
