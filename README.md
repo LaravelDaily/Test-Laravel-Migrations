@@ -1,6 +1,3 @@
-### Time to complete
-It took me approximately 40mins to complete these tests.
-
 ## Test Your Laravel Migrations Skills
 
 This repository is a test for you: perform a set of tasks listed below, and fix the PHPUnit tests, which are currently intentionally failing.

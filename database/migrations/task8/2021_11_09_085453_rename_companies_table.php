@@ -17,6 +17,7 @@ class RenameCompaniesTable extends Migration
         Schema::rename('company', 'companies');
     }
 
+
     /**
      * Reverse the migrations.
      *
