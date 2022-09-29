@@ -1,3 +1,6 @@
+### Time to complete
+It took me approximately 40mins to complete these tests.
+
 ## Test Your Laravel Migrations Skills
 
 This repository is a test for you: perform a set of tasks listed below, and fix the PHPUnit tests, which are currently intentionally failing.
@@ -37,7 +40,7 @@ Good luck!
 
 ## Task 1. Migrations with Foreign Key.
 
-Folder `database/migrations/task1` contains migrations for tasks with foreign key to users, and for comments with foreign key to users. 
+Folder `database/migrations/task1` contains migrations for tasks with foreign key to users, and for comments with foreign key to users.
 Both will fail, your task is to understand the reason and to fix the migrations to run successfully.
 
 Test method `test_successful_foreign_key_tasks_comments()`.
