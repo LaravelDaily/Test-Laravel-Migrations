@@ -26,5 +26,6 @@ class RenameCompaniesTable extends Migration
     public function down()
     {
         //
+        
     }
 }
