@@ -32,6 +32,9 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
+    - name: Install Doctrine
+      run: composer require doctrine/dbal
+
     - name: Generate key
       run: php artisan key:generate
 
