@@ -16,9 +16,9 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->timestamps('deleted_at');
+            $table->timestamps();
             // TASK: Add soft deletes column here
-            $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->softDeletes();
         });
     }
 
