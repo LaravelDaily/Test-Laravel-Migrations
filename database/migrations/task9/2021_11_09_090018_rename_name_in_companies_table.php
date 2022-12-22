@@ -14,9 +14,12 @@ class RenameNameInCompaniesTable extends Migration
     public function up()
     {
         // TASK: write the migration to rename the column "title" into "name"
-        Schema::table('companies', function (Blueprint $table) {
-            // Write code here
-        });
+        if (Schema::hasColumn('companies', 'title')) {
+            Schema::table('companies', function (Blueprint $table) {
+                // Write code here
+                $table->renameColumn('title', 'name');
+            });
+        }
     }
 
     /**
@@ -26,8 +29,11 @@ class RenameNameInCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::table('companies', function (Blueprint $table) {
-            //
-        });
+        if (Schema::hasColumn('companies', 'name')) {
+            Schema::table('companies', function (Blueprint $table) {
+                // Write code here
+                $table->renameColumn('name', 'title');
+            });
+        }
     }
 }
