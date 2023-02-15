@@ -28,7 +28,7 @@ class MigrationsTest extends TestCase
 
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task1']);
     }
-
+    
     public function test_column_added_to_the_table()
     {
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task2']);
@@ -45,7 +45,7 @@ class MigrationsTest extends TestCase
 
         $this->assertEquals(3, $fieldNumber);
     }
-
+    
     public function test_soft_deletes()
     {
         // We just test if the test succeeds or throws an exception
@@ -56,7 +56,7 @@ class MigrationsTest extends TestCase
         $project = Project::factory()->create();
         $project->delete();
     }
-
+    
     public function test_delete_parent_child_record()
     {
         // We just test if the test succeeds or throws an exception
@@ -68,7 +68,7 @@ class MigrationsTest extends TestCase
         Product::factory()->create();
         $category->delete();
     }
-
+    
     public function test_repeating_column_table()
     {
         // We just test if the migration succeeds or throws an exception
@@ -76,7 +76,7 @@ class MigrationsTest extends TestCase
 
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task5']);
     }
-
+    
     public function test_duplicate_name()
     {
         // We expect that the second Company::create() would throw an exception like
@@ -88,7 +88,7 @@ class MigrationsTest extends TestCase
         Company::create(['name' => 'Company One']);
         Company::create(['name' => 'Company One']);
     }
-
+    
     public function test_automatic_value()
     {
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task7']);
@@ -97,7 +97,7 @@ class MigrationsTest extends TestCase
         $company = Company::first();
         $this->assertEquals('My company', $company->name);
     }
-
+    
     public function test_renamed_table()
     {
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task8']);
@@ -105,7 +105,7 @@ class MigrationsTest extends TestCase
         DB::table('companies')->insert(['name' => 'First']);
         $this->assertDatabaseHas(Company::class, ['name' => 'First']);
     }
-
+    
     public function test_renamed_column()
     {
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task9']);
@@ -113,7 +113,7 @@ class MigrationsTest extends TestCase
         Company::create(['name' => 'First']);
         $this->assertDatabaseHas(Company::class, ['name' => 'First']);
     }
-
+    
     public function test_null_foreign_key()
     {
         Artisan::call('migrate:fresh', ['--path' => '/database/migrations/task10']);
