@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->timestamps();
 
-            // TASK: Add soft deletes column here
+            $table->softDeletes('deleted_at');
         });
     }
 
