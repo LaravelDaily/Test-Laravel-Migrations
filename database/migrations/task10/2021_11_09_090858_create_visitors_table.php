@@ -19,6 +19,7 @@ class CreateVisitorsTable extends Migration
             $table->foreignId('country_id')->nullable();
             $table->string('ip_address');
             $table->timestamps();
+            
         });
     }
 
