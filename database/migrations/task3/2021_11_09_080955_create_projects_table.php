@@ -19,6 +19,9 @@ class CreateProjectsTable extends Migration
             $table->timestamps();
 
             // TASK: Add soft deletes column here
+            $table->softDeletes();
+
+            
         });
     }
 
