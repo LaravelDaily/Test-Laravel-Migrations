@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:latest 
+    container_name: db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+
+  webserver:
+    image: nginx:1.21.4-alpine
+    container_name: nginx-webserver
+    restart: always
+    volumes:
+      - ./:/var/www
+      - ./cfg/nginx/:/etc/nginx/conf.d/
+      - ./storage/logs/nginx/:/var/logs/nginx/
+    ports:
+      - "80:80"
+    links:
+      - app
+
+  app:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: app
+    restart: always
+    ports:
+      - ":9000"
+    volumes:
+      - ./:/var/www
+      - ./cfg/php/php.ini:/user/local/etc/php/conf.d/extend-php.ini
+    depends_on:
+      - db
