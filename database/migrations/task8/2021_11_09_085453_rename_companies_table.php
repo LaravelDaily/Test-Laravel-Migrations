@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class RenameCompaniesTable extends Migration
@@ -13,7 +12,7 @@ class RenameCompaniesTable extends Migration
      */
     public function up()
     {
-        // TASK: add a migration to rename table "company" into "companies"
+        Schema::rename('company', 'companies');
     }
 
     /**
