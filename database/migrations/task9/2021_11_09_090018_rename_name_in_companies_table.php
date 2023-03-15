@@ -6,28 +6,29 @@ use Illuminate\Support\Facades\Schema;
 
 class RenameNameInCompaniesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        // TASK: write the migration to rename the column "title" into "name"
-        Schema::table('companies', function (Blueprint $table) {
-            // Write code here
-        });
-    }
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		// TASK: write the migration to rename the column "title" into "name"
+		Schema::table('companies', function (Blueprint $table) {
+			// Write code here
+			$table->renameColumn('title', 'name');
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('companies', function (Blueprint $table) {
-            //
-        });
-    }
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::table('companies', function (Blueprint $table) {
+			//
+		});
+	}
 }
