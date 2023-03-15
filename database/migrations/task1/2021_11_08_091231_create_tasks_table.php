@@ -6,29 +6,33 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTasksTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name');
-            $table->timestamps();
-        });
-    }
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		if (!Schema::hasTable('tasks')) {
+			Schema::create('tasks', function (Blueprint $table) {
+				$table->id();
+				$table->string('name');
+				$table->timestamps();
+			});
+		}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('tasks');
-    }
+		Schema::table('tasks', function (Blueprint $table) {
+			$table->foreignId('user_id')->constrained();
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::dropIfExists('tasks');
+	}
 }
