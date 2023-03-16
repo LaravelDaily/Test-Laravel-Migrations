@@ -112,6 +112,8 @@ class MigrationsTest extends TestCase
 
         Company::create(['name' => 'First']);
         $this->assertDatabaseHas(Company::class, ['name' => 'First']);
+        //$this->assertTrue(Schema::hasColumn('companies', 'name'));
+        //$this->assertColumnExists('companies', 'name');
     }
 
     public function test_null_foreign_key()
