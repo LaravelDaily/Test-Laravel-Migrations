@@ -24,6 +24,6 @@ class RenameCompaniesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::rename('companies','company');
     }
 }
