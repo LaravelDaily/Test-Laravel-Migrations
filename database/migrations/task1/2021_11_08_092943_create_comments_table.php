@@ -4,20 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
-{
+class CreateCommentsTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
+            // This is fixed because a foreign key is not a BigInteger
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('comment_id');
+            $table->unsignedBigInteger('comment_id');
             $table->foreign('comment_id')->references('id')->on('comments');
             $table->string('comment_text');
             $table->timestamps();
@@ -29,8 +28,7 @@ class CreateCommentsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('comments');
     }
 }
