@@ -23,6 +23,7 @@ class MigrationsTest extends TestCase
 
     public function test_successful_foreign_key_tasks_comments()
     {
+        $this->withoutExceptionHandling();
         // We just test if the migration succeeds or throws an exception
         $this->expectNotToPerformAssertions();
 
