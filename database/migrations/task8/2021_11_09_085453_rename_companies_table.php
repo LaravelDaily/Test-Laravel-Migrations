@@ -14,6 +14,7 @@ class RenameCompaniesTable extends Migration
     public function up()
     {
         // TASK: add a migration to rename table "company" into "companies"
+        Schema::rename('company', 'companies');
     }
 
     /**
@@ -23,6 +24,6 @@ class RenameCompaniesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('companies');
     }
 }
