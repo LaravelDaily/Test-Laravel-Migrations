@@ -14,10 +14,11 @@ class UpdateUsersTable extends Migration
     public function up()
     {
         // TASK: add an if-statement in this file to NOT add column if it already exists
-        Schema::table('users', function (Blueprint $table) {
-            if (!(Shema::hascolumn('users' , 'name'))
-                $table->string('name');
-        });
+        if (!(Shema::hasColumn('users' , 'name')){
+            Schema::table('users', function (Blueprint $table) {
+                    $table->string('name');
+            });
+        }
     }
 
     /**
