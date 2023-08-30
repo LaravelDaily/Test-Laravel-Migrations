@@ -22,7 +22,6 @@ class CreateCommentsTable extends Migration
             $table->foreignIdFor(User::class);
             // $table->unsignedInteger('comment_id');
             // $table->foreign('comment_id')->references('id')->on('comments');
-            $table->foreignIdFor('comments');
             $table->timestamps();
         });
     }
