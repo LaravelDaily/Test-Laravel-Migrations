@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,11 +16,13 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('comment_id');
-            $table->foreign('comment_id')->references('id')->on('comments');
+            // $table->unsignedInteger('user_id');
+            // $table->foreign('user_id')->references('id')->on('users');
             $table->string('comment_text');
+            $table->foreignIdFor(User::class);
+            // $table->unsignedInteger('comment_id');
+            // $table->foreign('comment_id')->references('id')->on('comments');
+            $table->foreignIdFor('comments');
             $table->timestamps();
         });
     }
