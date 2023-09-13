@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+        
     }
 
     /**
