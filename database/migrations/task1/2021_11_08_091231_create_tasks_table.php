@@ -15,8 +15,19 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+//            Issue:
+//            $table->bigInteger('user_id');
+//            $table->foreign('user_id')->references('id')->on('users');
+//            FIRST way:
+//            $table->bigInteger('user_id')->unsigned();
+//            $table->foreign('user_id')->references('id')->on('users');
+//            SECOND way:
+//            $table->unsignedBigInteger('user_id');
+//            $table->foreign('user_id')->references('id')->on('users');
+
+//            BEST way for me:
+            $table->foreignId('user_id')->constrained();
+
             $table->string('name');
             $table->timestamps();
         });
