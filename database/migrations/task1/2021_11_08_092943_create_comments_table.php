@@ -15,10 +15,26 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('comment_id');
-            $table->foreign('comment_id')->references('id')->on('comments');
+//            Issue:
+//            $table->unsignedInteger('user_id');
+//            $table->foreign('user_id')->references('id')->on('users');
+//            $table->unsignedInteger('comment_id');
+//            $table->foreign('comment_id')->references('id')->on('comments');
+//            FIRST way:
+//            $table->unsignedBigInteger('user_id');
+//            $table->foreign('user_id')->references('id')->on('users');
+//            $table->unsignedBigInteger('comment_id');
+//            $table->foreign('comment_id')->references('id')->on('comments');
+//            SECOND way:
+//            $table->bigInteger('user_id')->unsigned();
+//            $table->foreign('user_id')->references('id')->on('users');
+//            $table->bigInteger('comment_id')->unsigned();
+//            $table->foreign('comment_id')->references('id')->on('comments');
+
+//            BEST way for me:
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('comment_id')->constrained();
+
             $table->string('comment_text');
             $table->timestamps();
         });

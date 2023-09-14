@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 class UpdateUsersTable extends Migration
 {
@@ -14,9 +15,13 @@ class UpdateUsersTable extends Migration
     public function up()
     {
         // TASK: add an if-statement in this file to NOT add column if it already exists
+        if (User::first('name') !== null) {
+
         Schema::table('users', function (Blueprint $table) {
             $table->string('name');
         });
+        }
+
     }
 
     /**
