@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->loadMigrationsFrom(glob(database_path('migrations/*'), GLOB_ONLYDIR));
     }
+
 }
