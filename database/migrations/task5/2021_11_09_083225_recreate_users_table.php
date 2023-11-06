@@ -14,7 +14,8 @@ class RecreateUsersTable extends Migration
     public function up()
     {
         // TASK: add an if-statement in this file to NOT create table if it already exists
-        Schema::create('users', function (Blueprint $table) {
+        if(Schema::hasTable('users')==false){
+            Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -23,6 +24,7 @@ class RecreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        }
     }
 
     /**
