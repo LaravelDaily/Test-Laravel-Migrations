@@ -6,26 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class UpdateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        // TASK: add an if-statement in this file to NOT add column if it already exists
         Schema::table('users', function (Blueprint $table) {
-            $table->string('name');
+            // Check if the 'name' column does not exist before adding it
+            if (!Schema::hasColumn('users', 'name')) {
+                $table->string('name');
+            }
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        //
+        // No need to define rollback operations for this migration
     }
 }
