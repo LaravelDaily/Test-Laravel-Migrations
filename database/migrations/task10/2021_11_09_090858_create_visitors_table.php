@@ -13,10 +13,9 @@ class CreateVisitorsTable extends Migration
      */
     public function up()
     {
-        // TASK: edit this migration so country_id would allow NULL values
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('country_id')->constrained();
+            $table->foreignId('country_id')->nullable()->constrained();
             $table->string('ip_address');
             $table->timestamps();
         });
