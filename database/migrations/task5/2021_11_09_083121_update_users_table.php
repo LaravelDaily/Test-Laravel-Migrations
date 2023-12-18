@@ -30,5 +30,10 @@ class UpdateUsersTable extends Migration
     public function down()
     {
         //
+        if(Schema::hasColumn('users','name')){
+            Schema::table('users',function(){
+                $table->dropColumn('name');
+            });
+        }
     }
 }
