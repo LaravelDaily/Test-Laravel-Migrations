@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         // TASK: Edit this file, so that deleting category would auto-delete its products
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();
         });
