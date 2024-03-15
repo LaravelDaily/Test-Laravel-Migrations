@@ -17,8 +17,8 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('name');
             $table->timestamps();
-
             // TASK: Add soft deletes column here
+            $table->softDeletes(); // đoạn này để thêm trường deleted_at, mặc định giá trị là null
         });
     }
 
