@@ -16,6 +16,8 @@ class RenameNameInCompaniesTable extends Migration
         // TASK: write the migration to rename the column "title" into "name"
         Schema::table('companies', function (Blueprint $table) {
             // Write code here
+            $table->string('name')->after('id');
+            $table->string('title')->nullable()->change();
         });
     }
 
@@ -28,6 +30,8 @@ class RenameNameInCompaniesTable extends Migration
     {
         Schema::table('companies', function (Blueprint $table) {
             //
+            $table->string('title')->nullable(false)->change(); 
+            $table->dropColumn('name');
         });
     }
 }
