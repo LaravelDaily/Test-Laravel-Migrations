@@ -14,6 +14,11 @@ class RenameCompaniesTable extends Migration
     public function up()
     {
         // TASK: add a migration to rename table "company" into "companies"
+        Schema::create('companies', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
     }
 
     /**
