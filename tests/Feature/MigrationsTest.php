@@ -40,7 +40,7 @@ class MigrationsTest extends TestCase
         $fieldNumber = 0;
         foreach ($user->getAttributes() as $key => $value) {
             $fieldNumber++;
-            if ($key == "surname") break;
+            if ($key === "surname") break;
         }
 
         $this->assertEquals(3, $fieldNumber);
