@@ -11,16 +11,22 @@ class CreateTasksTable extends Migration
      *
      * @return void
      */
-    public function up()
+  public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('tasks')) {
+            Schema::create('tasks', function (Blueprint $table) {
+                $table->id();
+                $table->bigInteger('user_id');
+                $table->string('name');
+                $table->timestamps();
+            });}
+            else {
+                Schema::create('tasks', function (Blueprint $table) {
+                    $table->foreignId('user_id');
+                });
+            }
     }
+
 
     /**
      * Reverse the migrations.
