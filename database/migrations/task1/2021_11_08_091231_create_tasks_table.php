@@ -1,22 +1,19 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTasksTable extends Migration
-{
+class CreateTasksTable extends Migration {
     /**
      * Run the migrations.
      *
-     * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignIdFor(User::class);
             $table->string('name');
             $table->timestamps();
         });
@@ -25,10 +22,8 @@ class CreateTasksTable extends Migration
     /**
      * Reverse the migrations.
      *
-     * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('tasks');
     }
 }
