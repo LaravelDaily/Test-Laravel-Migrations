@@ -11,9 +11,16 @@ class UpdateUsersTable extends Migration
      *
      * @return void
      */
+
+    private $column_exists=False;
+
     public function up()
     {
         // TASK: add an if-statement in this file to NOT add column if it already exists
+        if(Schema::hasColumn('users','name')){
+            $column_exists=True;
+            return;
+        }
         Schema::table('users', function (Blueprint $table) {
             $table->string('name');
         });
@@ -27,5 +34,10 @@ class UpdateUsersTable extends Migration
     public function down()
     {
         //
+        if($column_exists==False){
+            Schema::table('users',function(Blueprint $table){
+                $table->dropColumn('name');
+            });
+        }
     }
 }

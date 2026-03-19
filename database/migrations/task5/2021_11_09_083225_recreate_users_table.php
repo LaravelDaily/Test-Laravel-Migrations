@@ -11,9 +11,18 @@ class RecreateUsersTable extends Migration
      *
      * @return void
      */
+
+    private $table_exists=False;
+    
     public function up()
     {
         // TASK: add an if-statement in this file to NOT create table if it already exists
+
+        if(Schema::hasTable('users')){
+            $table_exists=True;
+            return;
+        }
+        
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -33,5 +42,8 @@ class RecreateUsersTable extends Migration
     public function down()
     {
         //
+        if($table_exists==False){
+            Schema::dropIfExists('users');
+        }
     }
 }
